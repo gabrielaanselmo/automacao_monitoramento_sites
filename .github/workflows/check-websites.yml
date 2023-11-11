@@ -2,25 +2,30 @@ name: Monitoramento de Sites
 
 on:
   schedule:
+    # Executa todos os dias à meia-noite UTC
     - cron: '0 0 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # Permite que a ação seja executada manualmente
 
 permissions:
   contents: read
-  secrets: read
 
 jobs:
   check-sites:
     runs-on: ubuntu-latest
+
     steps:
     - name: Fazer checkout do código
       uses: actions/checkout@v2
+
     - name: Configurar Python 3.x
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
+
     - name: Instalar dependências
       run: pip install requests
+
+
     - name: Executar script de monitoramento de sites
       env:
         EMAIL_USER: ${{ secrets.EMAIL_USER }}
