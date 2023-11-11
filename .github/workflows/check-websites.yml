@@ -22,6 +22,11 @@ jobs:
     - name: Instalar dependências
       run: pip install requests
 
+    - name: Debugging Secrets
+      run: |
+        echo "Length of EMAIL_USER: ${#EMAIL_USER}"
+        echo "Length of EMAIL_PASSWORD: ${#EMAIL_PASSWORD}"
+
     - name: Executar script de monitoramento de sites
       env:
         EMAIL_USER: ${{ secrets.EMAIL_USER }}
