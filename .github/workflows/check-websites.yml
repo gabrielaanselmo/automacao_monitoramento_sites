@@ -28,7 +28,7 @@ jobs:
 
     - name: Executar script de monitoramento de sites
       env:
-        EMAIL_USER: ${{ secrets.EMAIL_USER }}
-        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-        RECEIVER: ${{ secrets.RECEIVER }}
+        SENDER: ${{ secrets.SENDER }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        REMITTEE: ${{ secrets.REMITTEE }}
       run: python script.py
