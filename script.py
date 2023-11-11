@@ -9,9 +9,9 @@ sites = ["https://www.google.com", "https://www.thissitedoesnotexist.com"]
 
 
 def send_email(subject, message):
-    sender = "email@gmail.com"
-    password = "password"
-    receiver = "email@gmail.com"
+    sender = os.environ['SENDER']
+    password = os.environ['PASSWORD']
+    receiver = os.environ['REMITTEE']
 
     msg = MIMEMultipart()
     msg['From'] = sender
